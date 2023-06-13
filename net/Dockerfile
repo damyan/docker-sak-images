@@ -1,4 +1,4 @@
-FROM damyanyordanov:sak-base
+FROM ghcr.io/damyan/sak-base
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
