@@ -17,6 +17,8 @@ RUN mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 ENV TZ=Europe/Berlin
 
+WORKDIR "/root"
+
 RUN git clone https://github.com/damyan/dotfiles.git .dotfiles && cd .dotfiles && ./install_dot_files.sh
 
 COPY --from=yq /usr/bin/yq /usr/local/bin/yq
