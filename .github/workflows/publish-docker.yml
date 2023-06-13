@@ -12,7 +12,7 @@ on:
     paths:
     - 'base/Dockerfile'
   pull_request_target:
-    paths-ignore:
+    paths:
     - 'base/Dockerfile'
 
 jobs:
