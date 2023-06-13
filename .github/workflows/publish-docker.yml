@@ -64,7 +64,7 @@ jobs:
       timeout-minutes: 100
       uses: docker/build-push-action@v4
       with:
-        context: .
+        context: base
         platforms: ${{env.platforms}}
         push: ${{ github.event_name != 'pull_request_target' }}
         tags: ${{ steps.meta.outputs.tags }}
