@@ -22,3 +22,4 @@ RUN git clone https://github.com/damyan/dotfiles.git .dotfiles && cd .dotfiles &
 COPY --from=yq /usr/bin/yq /usr/local/bin/yq
 
 RUN chmod a+x /usr/local/bin/yq
+
