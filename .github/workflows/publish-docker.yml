@@ -10,10 +10,10 @@ on:
     tags:
     - v*
     paths:
-    - '**/Dockerfile'
+    - 'base/Dockerfile'
   pull_request_target:
     paths-ignore:
-    - '**/Dockerfile'
+    - 'base/Dockerfile'
 
 jobs:
   buildAndPush:
