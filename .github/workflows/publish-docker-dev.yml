@@ -14,6 +14,7 @@ on:
   pull_request_target:
     paths:
     - 'dev/Dockerfile'
+  workflow_dispatch:
 
 jobs:
   buildAndPush:
