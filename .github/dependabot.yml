@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    reviewers:
+      - damyan
+    assignees:
+      - damyan
+
+  - package-ecosystem: docker
+    directory: "base"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    reviewers:
+      - damyan
+    assignees:
+      - damyan
+
+  - package-ecosystem: docker
+    directory: "net"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    reviewers:
+      - damyan
+    assignees:
+      - damyan
+
+  - package-ecosystem: docker
+    directory: "dev"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    reviewers:
+      - damyan
+    assignees:
+      - damyan
