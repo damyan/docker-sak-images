@@ -22,9 +22,9 @@ ARG DEBIAN_FRONEND=noninteractive
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    apt-transport-https ca-certificates bash-completion curl \
-    debian-keyring debian-archive-keyring git gnupg iputils-ping iproute2 htop jq less \
-    net-tools openssh-client socat strace tcpdump tzdata tmux vim wget \
+    apt-transport-https bash-completion ca-certificates curl \
+    debian-keyring debian-archive-keyring git gnupg htop iputils-ping iproute2 jq less \
+    ncdu net-tools openssh-client socat strace telnet tcpdump tzdata tmux vim wget \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
