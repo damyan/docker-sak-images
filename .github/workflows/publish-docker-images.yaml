@@ -1,0 +1,32 @@
+name: Build and Publish All Docker Images
+
+on:
+  push:
+    branches:
+    - main
+    tags:
+    - v*
+    paths:
+    - 'base/Dockerfile'
+  pull_request_target:
+    paths:
+    - 'base/Dockerfile'
+  workflow_dispatch:
+
+jobs:
+  buildAndPushBase:
+    uses: ./.github/workflows/publish-docker.yaml
+    with:
+      image: base
+
+  buildAndPush:
+    needs: buildAndPushBase
+    strategy:
+      matrix:
+        image:
+        - name: dev
+        - name: net
+      max-parallel: 2
+    uses: ./.github/workflows/publish-docker.yaml
+    with:
+      image: ${{ matrix.image.name }}
