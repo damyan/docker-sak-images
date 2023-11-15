@@ -1,0 +1,29 @@
+name: Build and Publish Dev Docker Image
+
+on:
+  push:
+    branches:
+    - main
+    tags:
+    - v*
+    paths:
+    - 'dev/Dockerfile'
+  pull_request_target:
+    paths:
+    - 'dev/Dockerfile'
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - 'Build and Publish Base Docker Image'
+    branches-ignore:
+      - 'feature/**'
+      - 'fix/**'
+      - 'bugfix/**'
+    types:
+      - completed
+
+jobs:
+  buildAndPush:
+    uses: ./.github/workflows/publish-docker.yaml
+    with:
+      image: dev

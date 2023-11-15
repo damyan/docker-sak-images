@@ -1,21 +1,14 @@
-name: Build and Publish Base Docker Image
+name: Build and Publish Docker Image
 
 env:
   platforms: linux/amd64,linux/arm64
 
 on:
-  push:
-    branches:
-    - main
-    tags:
-    - v*
-    paths:
-    - 'base/Dockerfile'
-  pull_request_target:
-    paths:
-    - 'base/Dockerfile'
-  workflow_dispatch:
-
+  workflow_call:
+    inputs:
+      image:
+        required: true
+        type: string
 jobs:
   buildAndPush:
     runs-on: ubuntu-latest
@@ -27,7 +20,7 @@ jobs:
       id: meta
       with:
         images: |
-          ghcr.io/${{ github.repository_owner }}/sak-base
+          ghcr.io/${{ github.repository_owner }}/sak-${{ inputs.image }}
         tags: |
           type=semver,pattern={{version}}
           type=schedule
@@ -41,7 +34,7 @@ jobs:
       uses: docker/setup-qemu-action@v3
       with:
         image: tonistiigi/binfmt:latest
-        platforms: ${{env.platforms}}
+        platforms: ${{ env.platforms }}
     # workaround for self-hosted runner
     # https://github.com/mumoshu/actions-runner-controller-ci/commit/e91c8c0f6ca82aa7618010c6d2f417aa46c4a4bf
     - name: Set up Docker Context for Buildx
@@ -65,8 +58,8 @@ jobs:
       timeout-minutes: 100
       uses: docker/build-push-action@v5
       with:
-        context: base
-        platforms: ${{env.platforms}}
+        context: ${{ inputs.image }}
+        platforms: ${{ env.platforms }}
         push: ${{ github.event_name != 'pull_request_target' }}
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
