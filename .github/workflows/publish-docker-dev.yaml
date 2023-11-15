@@ -12,15 +12,6 @@ on:
     paths:
     - 'dev/Dockerfile'
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - 'Build and Publish Base Docker Image'
-    branches-ignore:
-      - 'feature/**'
-      - 'fix/**'
-      - 'bugfix/**'
-    types:
-      - completed
 
 jobs:
   buildAndPush:
