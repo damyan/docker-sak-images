@@ -18,10 +18,10 @@ on:
   workflow_run:
     workflows:
       - 'Build and Publish Base Docker Image'
-    branches:
-      - main
-    tags:
-      - v*
+    branches-ignore:
+      - 'feature/**'
+      - 'fix/**'
+      - 'bugfix/**'
     types:
       - completed
 
