@@ -20,6 +20,8 @@ on:
       - 'Build and Publish Base Docker Image'
     branches:
       - main
+    tags:
+      - v*
     types:
       - completed
 
