@@ -31,6 +31,8 @@ RUN mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 ENV TZ=Europe/Berlin
 
+RUN curl -sS https://starship.rs/install.sh > install.sh
+RUN sh install.sh -y
 
 # install dot tools
 WORKDIR "/home/damyan"
@@ -38,7 +40,6 @@ WORKDIR "/home/damyan"
 USER damyan
 
 RUN git clone https://github.com/damyan/dotfiles.git .dotfiles && cd .dotfiles && ./install_dot_files.sh
-
 
 # install yq
 WORKDIR "/root"
