@@ -8,7 +8,7 @@ on:
     - v*
     paths:
     - 'base/Dockerfile'
-  pull_request_target:
+  pull_request:
     paths:
     - 'base/Dockerfile'
   workflow_dispatch:

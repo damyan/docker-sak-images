@@ -6,7 +6,7 @@ on:
     - main
     paths:
     - 'dev/Dockerfile'
-  pull_request_target:
+  pull_request:
     paths:
     - 'dev/Dockerfile'
   workflow_dispatch:
