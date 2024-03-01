@@ -6,13 +6,13 @@ on:
     - main
     paths:
     - 'dev/Dockerfile'
-  pull_request_target:
+  pull_request:
     paths:
     - 'dev/Dockerfile'
   workflow_dispatch:
 
 jobs:
   buildAndPush:
-    uses: ./.github/workflows/publish-docker.yaml
+    uses: ./.github/workflows/publish-docker-reusable.yaml
     with:
       image: dev
