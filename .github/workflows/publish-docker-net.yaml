@@ -13,6 +13,6 @@ on:
 
 jobs:
   buildAndPush:
-    uses: ./.github/workflows/publish-docker.yaml
+    uses: ./.github/workflows/publish-docker-reusable.yaml
     with:
       image: net

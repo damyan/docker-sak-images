@@ -15,7 +15,7 @@ on:
 
 jobs:
   buildAndPushBase:
-    uses: ./.github/workflows/publish-docker.yaml
+    uses: ./.github/workflows/publish-docker-reusable.yaml
     with:
       image: base
 
@@ -27,6 +27,6 @@ jobs:
         - name: dev
         - name: net
       max-parallel: 2
-    uses: ./.github/workflows/publish-docker.yaml
+    uses: ./.github/workflows/publish-docker-reusable.yaml
     with:
       image: ${{ matrix.image.name }}
