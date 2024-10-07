@@ -12,6 +12,8 @@ on:
     paths:
     - 'base/Dockerfile'
   workflow_dispatch:
+  schedule:
+    - cron: '* * * * 3'
 
 jobs:
   buildAndPushBase:
