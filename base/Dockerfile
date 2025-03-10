@@ -21,7 +21,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 ARG DEBIAN_FRONEND=noninteractive
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
+  && apt-get install -y --no-install-recommends --ignore-missing \
     apt-transport-https bash-completion ca-certificates curl \
     debian-keyring debian-archive-keyring git gnupg htop iputils-ping iproute2 jq less \
     ncdu net-tools openssh-client socat strace telnet tcpdump tzdata tmux vim wget \
