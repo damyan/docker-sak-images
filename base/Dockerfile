@@ -46,6 +46,8 @@ WORKDIR "/root"
 
 USER root
 
+RUN setcap cap_net_raw+p /usr/bin/ping
+
 COPY --from=yq /usr/bin/yq /usr/local/bin/yq
 
 RUN chmod a+x /usr/local/bin/yq
