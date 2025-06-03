@@ -24,7 +24,7 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends --ignore-missing \
     apt-transport-https bash-completion ca-certificates curl \
     debian-keyring debian-archive-keyring git gnupg htop iputils-ping iproute2 jq less \
-    ncdu net-tools openssh-client socat strace telnet tcpdump tzdata tmux vim wget \
+    linux-sysctl-defaults ncdu net-tools openssh-client socat strace telnet tcpdump tzdata tmux vim wget \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
