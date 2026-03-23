@@ -56,7 +56,7 @@ jobs:
         touch "${{ runner.temp }}/digests/${digest#sha256:}"
     - name: Upload digest
       if: github.event_name != 'pull_request'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: digests-${{ inputs.image }}-${{ matrix.platform.os }}
         path: ${{ runner.temp }}/digests/*
