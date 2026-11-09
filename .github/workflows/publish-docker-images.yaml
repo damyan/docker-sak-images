@@ -9,8 +9,6 @@ on:
     paths:
     - 'base/Dockerfile'
   pull_request:
-    paths:
-    - 'base/Dockerfile'
   workflow_dispatch:
   schedule:
     - cron: '0 3 * * 3'

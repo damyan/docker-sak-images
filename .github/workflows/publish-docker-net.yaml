@@ -7,8 +7,6 @@ on:
     paths:
     - 'net/Dockerfile'
   pull_request:
-    paths:
-    - 'net/Dockerfile'
   workflow_dispatch:
 
 jobs:
